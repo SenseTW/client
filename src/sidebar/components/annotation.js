@@ -478,13 +478,7 @@ function AnnotationController(
   };
 
   this.canFlag = function () {
-    if (session.state.userid === self.annotation.user) {
-      return false;
-    }
-    if (persona.isThirdPartyUser(self.annotation.user, settings.authDomain)) {
-      return true;
-    }
-    return features.flagEnabled('flag_action');
+    return session.state.userid !== self.annotation.user;
   };
 
   this.isFlagged = function() {
