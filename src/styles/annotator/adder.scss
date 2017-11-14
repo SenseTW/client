@@ -124,4 +124,5 @@ $adder-transition-duration: 80ms;
   font-family: sans-serif;
   color: $gray-dark !important;
   transition: color $adder-transition-duration;
+  white-space: nowrap;
 }
