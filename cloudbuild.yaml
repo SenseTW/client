@@ -1,0 +1,3 @@
+steps:
+- name: gcr.io/cloud-builders/docker
+  args: ['run', '--pull', 'asia.gcr.io/ggv-notetool/client-builder']
