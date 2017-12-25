@@ -12,6 +12,8 @@ let overlayFlagEnabled;
 
 Object.keys(domWrapHighlighter).forEach((methodName)=>{
   highlighterFacade[methodName] = (...args)=>{
+    const name = methodName
+
     // lazy check the value but we will
     // use that first value as the rule throughout
     // the in memory session
@@ -19,7 +21,13 @@ Object.keys(domWrapHighlighter).forEach((methodName)=>{
       overlayFlagEnabled = features.flagEnabled('overlay_highlighter');
     }
 
-    const method = overlayFlagEnabled ? overlayHighlighter[methodName] : domWrapHighlighter[methodName];
+    // keep the old code for debugging
+    let method = overlayFlagEnabled ? overlayHighlighter[methodName] : domWrapHighlighter[methodName];
+    console.log('Is overlay flag enabled?', overlayFlagEnabled);
+
+    // force to use the DOM wrap highlighter
+    method = domWrapHighlighter[name]
+
     return method.apply(null, args);
   };
 });
