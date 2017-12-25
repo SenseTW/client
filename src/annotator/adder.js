@@ -10,25 +10,9 @@ var ANNOTATE_BTN_SELECTOR = '.js-annotate-btn';
 var HIGHLIGHT_BTN_CLASS = 'js-highlgiht-btn';
 var HIGHLIGHT_BTN_SELECTOR = '.js-highlight-btn';
 
-var OBJECTIVE_BTN_CLASS = 'js-objective-btn';
-var OBJECTIVE_BTN_SELECTOR = '.js-objective-btn';
-
-var REFLECTIVE_BTN_CLASS = 'js-reflective-btn';
-var REFLECTIVE_BTN_SELECTOR = '.js-reflective-btn';
-
-var INTERPRETIVE_BTN_CLASS = 'js-interpretive-btn';
-var INTERPRETIVE_BTN_SELECTOR = '.js-interpretive-btn';
-
-var DECISIONAL_BTN_CLASS = 'js-decisional-btn';
-var DECISIONAL_BTN_SELECTOR = '.js-decisional-btn';
-
 var BTN_SELECTOR_LIST = [
   ANNOTATE_BTN_SELECTOR,
-  HIGHLIGHT_BTN_SELECTOR,
-  OBJECTIVE_BTN_SELECTOR,
-  REFLECTIVE_BTN_SELECTOR,
-  INTERPRETIVE_BTN_SELECTOR,
-  DECISIONAL_BTN_SELECTOR
+  HIGHLIGHT_BTN_SELECTOR
 ]
 
 /**
@@ -183,25 +167,12 @@ function Adder(container, options) {
 
     var isAnnotateCommand = this.classList.contains(ANNOTATE_BTN_CLASS);
     var isHighlightCommand = this.classList.contains(HIGHLIGHT_BTN_CLASS);
-    var isObjectiveCommand = this.classList.contains(OBJECTIVE_BTN_CLASS);
-    var isReflectiveCommand = this.classList.contains(REFLECTIVE_BTN_CLASS);
-    var isInterpretiveCommand = this.classList.contains(INTERPRETIVE_BTN_CLASS);
-    var isDecisionalCommand = this.classList.contains(DECISIONAL_BTN_CLASS);
     var elem
 
     if (isAnnotateCommand) {
       options.onAnnotate();
     } else if (isHighlightCommand) {
       options.onHighlight();
-    } else if (
-      isObjectiveCommand ||
-      isReflectiveCommand ||
-      isInterpretiveCommand ||
-      isDecisionalCommand
-    ) {
-      // should be a <span />
-      elem = this.childNodes[1];
-      options.onORID(elem.dataset.action);
     } else {
       console.warn('Unknown command!');
     }

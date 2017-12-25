@@ -73,10 +73,6 @@ module.exports = class Guest extends Delegator
         self.setVisibleHighlights(true)
         self.createHighlight()
         document.getSelection().removeAllRanges()
-      onORID: (tag) ->
-        self.setVisibleHighlights(true)
-        self.createAnnotation({ $highlight: true, tags: ['ORID', tag] })
-        document.getSelection().removeAllRanges()
     })
     this.selections = selections(document).subscribe
       next: (range) ->
