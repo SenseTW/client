@@ -19,11 +19,11 @@ Object.keys(domWrapHighlighter).forEach((methodName)=>{
     // the in memory session
     if(overlayFlagEnabled === undefined){
       overlayFlagEnabled = features.flagEnabled('overlay_highlighter');
+      console.log('Is overlay flag enabled?', overlayFlagEnabled);
     }
 
     // keep the old code for debugging
     let method = overlayFlagEnabled ? overlayHighlighter[methodName] : domWrapHighlighter[methodName];
-    console.log('Is overlay flag enabled?', overlayFlagEnabled);
 
     // force to use the DOM wrap highlighter
     method = domWrapHighlighter[name]

@@ -7,7 +7,7 @@ var template = require('./adder.html');
 var ANNOTATE_BTN_CLASS = 'js-annotate-btn';
 var ANNOTATE_BTN_SELECTOR = '.js-annotate-btn';
 
-var HIGHLIGHT_BTN_CLASS = 'js-highlgiht-btn';
+var HIGHLIGHT_BTN_CLASS = 'js-highlight-btn';
 var HIGHLIGHT_BTN_SELECTOR = '.js-highlight-btn';
 
 var BTN_SELECTOR_LIST = [
