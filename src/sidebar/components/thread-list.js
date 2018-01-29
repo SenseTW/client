@@ -76,6 +76,7 @@ function ThreadListController($element, $scope, settings, VirtualThreadList) {
     self.virtualThreadList = {
       visibleThreads: state.visibleThreads,
       invisibleThreads: state.invisibleThreads,
+      tutorialHeight: (getThreadHeight('sidebar-tutorial') || 0),
       offscreenUpperHeight: state.offscreenUpperHeight + 'px',
       offscreenLowerHeight: state.offscreenLowerHeight + 'px',
     };
@@ -98,7 +99,7 @@ function ThreadListController($element, $scope, settings, VirtualThreadList) {
    */
   function scrollOffset(id) {
     var maxYOffset = self.scrollRoot.scrollHeight - self.scrollRoot.clientHeight;
-    return Math.min(maxYOffset, visibleThreads.yOffsetOf(id));
+    return Math.min(maxYOffset, visibleThreads.yOffsetOf(id)) + self.virtualThreadList.tutorialHeight;
   }
 
   /** Scroll the annotation with a given ID or $tag into view. */
