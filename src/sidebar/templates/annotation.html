@@ -1,6 +1,11 @@
-<header class="annotation-header" ng-if="!vm.user()">
-  <strong>登入後才能新增註記。</strong>
-</header>
+<div ng-if="!vm.user()">
+  <section class="annotation-body">
+    <span>登入後才能新增註記：</span>
+    <a href="{{ vm.serviceUrl('signup') }}" target="_blank">註冊帳號</a>
+    /
+    <a href="" ng-click="vm.login()">登入</a>
+  </section>
+</div>
 
 <div ng-keydown="vm.onKeydown($event)" ng-if="vm.user()">
 

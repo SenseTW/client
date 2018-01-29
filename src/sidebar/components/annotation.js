@@ -3,6 +3,8 @@
 var annotationMetadata = require('../annotation-metadata');
 var events = require('../events');
 var persona = require('../filter/persona');
+var serviceConfig = require('../service-config');
+var bridgeEvents = require('../../shared/bridge-events');
 
 var isNew = annotationMetadata.isNew;
 var isReply = annotationMetadata.isReply;
@@ -27,7 +29,7 @@ function updateModel(annotation, changes, permissions) {
 function AnnotationController(
   $document, $rootScope, $scope, $timeout, $window, analytics, annotationUI,
   annotationMapper, drafts, flash, features, groups, permissions, serviceUrl,
-  session, settings, store, streamer) {
+  session, settings, store, streamer, auth, bridge) {
 
   var self = this;
   var newlyCreatedByHighlightButton;
@@ -170,6 +172,19 @@ function AnnotationController(
       // User isn't logged in, save to drafts.
       drafts.update(self.annotation, self.state());
     }
+  }
+
+  this.login = function() {
+    if (serviceConfig(settings)) {
+      bridge.call(bridgeEvent.LOGIN_REQUESTED);
+      return Promise.reslove();
+    }
+
+    return auth.login().then(() => {
+      session.reload();
+    }).catch((err) => {
+      flash.error(err.message);
+    });
   }
 
   this.authorize = function(action) {
