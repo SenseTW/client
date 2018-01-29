@@ -16,11 +16,11 @@
   </top-bar>
 
   <div class="create-account-banner" ng-if="vm.isSidebar && vm.auth.status === 'logged-out'">
-    To annotate this document
+    若讓加註記，請先
     <a href="{{ vm.serviceUrl('signup') }}" target="_blank">
-      create a free account
+      註冊帳號
     </a>
-    or <a href="" ng-click="vm.login()">log in</a>
+    或<a href="" ng-click="vm.login()">登入</a>
   </div>
 
   <div class="content">
