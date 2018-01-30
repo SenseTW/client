@@ -1,8 +1,8 @@
 <div ng-if="!vm.user()">
   <section class="annotation-body">
-    <span>登入後才能新增註記：</span>
+    <span>若想新增註記，請先</span>
     <a href="{{ vm.serviceUrl('signup') }}" target="_blank">註冊帳號</a>
-    /
+    或
     <a href="" ng-click="vm.login()">登入</a>
   </section>
 </div>
