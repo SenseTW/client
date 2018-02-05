@@ -110,3 +110,18 @@
   min-width: 6rem;
   text-align: center;
 }
+
+.top-bar__logo {
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  width: 15px;
+  height: 15px;
+  background-image: url(../images/icons/sense.png);
+  background-image: -web-image-set(
+    url(../images/icons/sense.png) 1x,
+    url(../images/icons/sense@2x.png) 2x,
+    url(../images/icons/senes@3x.png) 3x
+  )
+}
