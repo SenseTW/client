@@ -99,3 +99,14 @@
 .top-bar__dropdown-arrow {
   color: $color-dove-gray;
 }
+
+.top-bar__link {
+  background-color: $brand-color;
+  color: $color-seashell;
+  font-size: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 8px;
+  min-width: 6rem;
+  text-align: center;
+}

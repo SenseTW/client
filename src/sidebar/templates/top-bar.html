@@ -35,6 +35,17 @@
        aria-label="Show {{vm.pendingUpdateCount}} new/updated annotation(s)">
        <svg-icon class="top-bar__apply-icon" name="'refresh'"></svg-icon>
     </a>
+    <a class="top-bar__link"
+       href="https://via.sense.tw/"
+       target="_blank">
+      新增文章
+    </a>
+    <a class="top-bar__link"
+       ng-click="vm.onSharePage()"
+       title="分享"
+       href="#">
+      分享
+    </a>
     <search-input
       class="search-input"
       query="vm.searchController.query()"
