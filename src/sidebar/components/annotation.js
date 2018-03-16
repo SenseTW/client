@@ -163,7 +163,8 @@ function AnnotationController(
     if (self.annotation.user) {
       // User is logged in, save to server.
       // Highlights are always private.
-      self.annotation.permissions = permissions.private(self.annotation.user);
+      // XXX: Make highlights public as request
+      //self.annotation.permissions = permissions.private(self.annotation.user);
       save(self.annotation).then(function(model) {
         model.$tag = self.annotation.$tag;
         $rootScope.$broadcast(events.ANNOTATION_CREATED, model);
