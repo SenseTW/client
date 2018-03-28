@@ -146,5 +146,8 @@
     "version": "make clean all && ./scripts/update-changelog.js && git add CHANGELOG.md",
     "postversion": "./scripts/postversion.sh",
     "prepublish": "yarn run build"
+  },
+  "dependencies": {
+    "node-sass": "<4.8.0"
   }
 }
