@@ -41,7 +41,7 @@ function formatAnnot(ann) {
  * sidebar.
  */
 // @ngInject
-function FrameSync($rootScope, $window, Discovery, annotationUI, bridge) {
+function FrameSync($rootScope, $window, Discovery, annotationUI, bridge, auth) {
 
   // Set of tags of annotations that are currently loaded into the frame
   var inFrame = new Set();
@@ -112,6 +112,14 @@ function FrameSync($rootScope, $window, Discovery, annotationUI, bridge) {
         }
       }
     });
+
+    $rootScope.$on(events.USER_LOGGED_IN, function() {
+      bridge.call('userLoggedIn');
+    })
+
+    $rootScope.$on(events.USER_LOGGED_OUT, function() {
+      bridge.call('userLoggedOut');
+    })
   }
 
   /**
@@ -192,6 +200,13 @@ function FrameSync($rootScope, $window, Discovery, annotationUI, bridge) {
       }
 
       $rootScope.$broadcast(events.FRAME_CONNECTED);
+
+      // notify the frame
+      auth.tokenGetter().then(function(token) {
+        if (token) {
+          bridge.call('userLoggedIn');
+        }
+      })
 
       annotationUI.connectFrame({
         id: info.frameIdentifier,

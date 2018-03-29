@@ -51,6 +51,7 @@ module.exports = class Guest extends Delegator
   anchoring: require('./anchoring/html')
 
   # Internal state
+  isLoggedIn: false
   plugins: null
   anchors: null
   visibleHighlights: false
@@ -182,6 +183,12 @@ module.exports = class Guest extends Delegator
 
     crossframe.on 'setVisibleHighlights', (state) =>
       this.setVisibleHighlights(state)
+
+    crossframe.on 'userLoggedIn', () =>
+      @isLoggedIn = true
+
+    crossframe.on 'userLoggedOut', () =>
+      @isLoggedIn = false
 
   destroy: ->
     $('#annotator-dynamic-style').remove()
@@ -418,6 +425,11 @@ module.exports = class Guest extends Delegator
     if !focusRect
       # The selected range does not contain any text
       this._onClearSelection()
+      return
+
+    if !@isLoggedIn
+      # The user doesn't login. Show the sidebar for they.
+      @crossframe?.call('showSidebar')
       return
 
     @selectedRanges = [range]
