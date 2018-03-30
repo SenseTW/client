@@ -121,6 +121,8 @@ function session($q, $rootScope, analytics, annotationUI, auth,
     }
 
     if (groupsChanged) {
+      // filter out the public(1st) group
+      model.groups = model.groups.slice(1);
       $rootScope.$broadcast(events.GROUPS_CHANGED);
     }
 
