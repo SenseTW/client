@@ -247,6 +247,9 @@ function auth($http, $rootScope, $window,
         // Attempt to load the tokens from the previous session.
         tokenInfoPromise = Promise.resolve(loadToken());
       }
+
+      // Notify the annotator before any API call
+      $rootScope.$broadcast(events.USER_LOGGED_IN)
     }
 
     var origToken = tokenInfoPromise;
@@ -386,6 +389,7 @@ function auth($http, $rootScope, $window,
       }).then(() => {
         tokenInfoPromise = Promise.resolve(null);
         localStorage.removeItem(storageKey());
+        $rootScope.$broadcast(events.USER_LOGGED_OUT);
       });
   }
 

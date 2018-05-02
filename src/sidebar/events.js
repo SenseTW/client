@@ -51,4 +51,10 @@ module.exports = {
 
   /** An annotation is unloaded. */
   ANNOTATIONS_UNLOADED: 'annotationsUnloaded',
+
+  /** the user does login */
+  USER_LOGGED_IN: 'userLoggedIn',
+
+  /** the user does logout */
+  USER_LOGGED_OUT: 'userLoggedOut',
 };
