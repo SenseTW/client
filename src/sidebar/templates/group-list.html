@@ -57,6 +57,8 @@
                {{group.name}}
             </a>
           </div>
+          <!-- Hide the group activity link for https://github.com/SenseTW/sensetw/issues/116 -->
+          <!--
           <div class="share-link-container" ng-click="$event.stopPropagation()" ng-if="!group.public">
             <a class="share-link"
                href="{{group.url}}"
@@ -65,6 +67,7 @@
               View group activity and invite others
             </a>
           </div>
+          -->
         </div>
         <!-- the 'Leave group' icon !-->
         <div class="group-cancel-icon-container" ng-click="$event.stopPropagation()">

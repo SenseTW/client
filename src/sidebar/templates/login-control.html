@@ -19,6 +19,8 @@
     !--><i class="h-icon-arrow-drop-down top-bar__dropdown-arrow"></i>
   </a>
   <ul class="dropdown-menu pull-right" role="menu">
+    <!-- Hide menu actions for https://github.com/SenseTW/sensetw/issues/116 -->
+    <!--
     <li class="dropdown-menu__row" ng-if="vm.auth.status === 'logged-in'">
       <span ng-if="!vm.shouldEnableProfileButton()"
             class="dropdown-menu__link dropdown-menu__link--disabled js-user-profile-btn is-disabled">
@@ -38,6 +40,7 @@
     <li class="dropdown-menu__row">
       <a class="dropdown-menu__link js-help-btn" ng-click="vm.onShowHelpPanel()">Help</a>
     </li>
+    -->
     <li class="dropdown-menu__row" ng-if="vm.shouldShowLogOutButton()">
       <a class="dropdown-menu__link dropdown-menu__link--subtle js-log-out-btn"
          href="" ng-click="vm.onLogout()">Log out</a>

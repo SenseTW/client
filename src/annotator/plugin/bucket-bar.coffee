@@ -9,7 +9,10 @@ highlighter = require('../highlighter')
 
 BUCKET_SIZE = 16                              # Regular bucket size
 BUCKET_NAV_SIZE = BUCKET_SIZE + 6             # Bucket plus arrow (up/down)
-BUCKET_TOP_THRESHOLD = 115 + BUCKET_NAV_SIZE  # Toolbar
+# Remove the page note button for https://github.com/SenseTW/sensetw/issues/116
+# The button height is 30px with a botom margin 5px. So the new top threshold is
+# 115 - 35.
+BUCKET_TOP_THRESHOLD = 80 + BUCKET_NAV_SIZE  # Toolbar
 
 
 # Scroll to the next closest anchor off screen in the given direction.

@@ -11,6 +11,8 @@
       {{ vm.totalAnnotations }}
     </span>
   </a>
+  <!-- Hide the page notes tab for https://github.com/SenseTW/sensetw/issues/116 -->
+  <!--
   <a class="selection-tabs__type"
      href="#"
      ng-class="{'is-selected': vm.selectedTab === vm.TAB_NOTES}"
@@ -21,6 +23,7 @@
       {{ vm.totalNotes }}
     </span>
   </a>
+  -->
   <a class="selection-tabs__type selection-tabs__type--orphan"
     ng-if="vm.orphansTabFlagEnabled() && vm.totalOrphans > 0"
     href="#"

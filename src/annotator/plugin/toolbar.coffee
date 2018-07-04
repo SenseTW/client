@@ -60,16 +60,19 @@ module.exports = class Toolbar extends Plugin
           event.stopPropagation()
           state = not @annotator.visibleHighlights
           @annotator.setAllVisibleHighlights state
-    ,
-      "title": "New Page Note"
-      "class": "h-icon-note"
-      "name": "insert-comment"
-      "on":
-        "click": (event) =>
-          event.preventDefault()
-          event.stopPropagation()
-          @annotator.createAnnotation()
-          @annotator.show()
+    ##
+    # Hide all page note actions
+    # see: https://github.com/SenseTW/sensetw/issues/116
+    #,
+    #  "title": "New Page Note"
+    #  "class": "h-icon-note"
+    #  "name": "insert-comment"
+    #  "on":
+    #    "click": (event) =>
+    #      event.preventDefault()
+    #      event.stopPropagation()
+    #      @annotator.createAnnotation()
+    #      @annotator.show()
     ]
     @buttons = $(makeButton(item) for item in items)
 

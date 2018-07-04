@@ -38,6 +38,13 @@
     <a class="top-bar__link"
        href="https://via.sense.tw/"
        target="_blank">
+      Add Source
+    </a>
+    <!-- Hide side-bar buttons for https://github.com/SenseTW/sensetw/issues/116 -->
+    <!--
+    <a class="top-bar__link"
+       href="https://via.sense.tw/"
+       target="_blank">
       新增文章
     </a>
     <a class="top-bar__link"
@@ -46,6 +53,7 @@
        href="#">
       分享
     </a>
+    -->
     <search-input
       class="search-input"
       query="vm.searchController.query()"
@@ -71,11 +79,12 @@
       on-logout="vm.onLogout()"
       on-sign-up="vm.onSignUp()">
     </login-control>
+    <!-- Link to the map dashboard for https://github.com/SenseTW/sensetw/issues/116 -->
     <a class="top-bar__logo"
-       title="榕樹下"
-       href="https://sense.tw"
+       title="Sense.TW"
+       href="https://staging.sense.tw"
        target="_blank">
-      榕樹下
+      Sense.TW
     </a>
   </div>
 </div>
