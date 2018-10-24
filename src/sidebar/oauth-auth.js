@@ -189,7 +189,7 @@ function auth($http, $rootScope, $window,
    * @return {Promise<TokenInfo>} Promise for the new access token
    */
   function refreshAccessToken(refreshToken, options) {
-    var data = { grant_type: 'refresh_token', refresh_token: refreshToken };
+    var data = { grant_type: 'refresh_token', refresh_token: refreshToken, client_id: settings.oauthClientId};
     return formPost(tokenUrl, data).then((response) => {
       var tokenInfo = tokenInfoFrom(response);
 
