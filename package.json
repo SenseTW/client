@@ -148,6 +148,7 @@
     "prepublish": "yarn run build"
   },
   "dependencies": {
-    "node-sass": "<4.8.0"
+    "node-sass": "<4.8.0",
+    "uglify-js": "3.0.x"
   }
 }

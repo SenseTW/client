@@ -38,6 +38,7 @@ function servePackage(port, hostname) {
   // cdn.hypothes.is' structure.
   app.get('/hypothesis', serveBootScript);
   app.get(`/hypothesis/${version}`, serveBootScript);
+  app.get(`/hypothesis/${version}/boot.js`, serveBootScript);
   app.use(`/hypothesis/${version}/`, express.static('.'));
 
   app.listen(port, function () {

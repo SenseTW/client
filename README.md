@@ -24,6 +24,11 @@ It’s used by the [Hypothesis browser extension][ext], and can also be
 
 Development
 -----------
+```
+npm -g gulp-cli yarn
+export SIDEBAR_APP_URL=http://localhost:3000/app.html
+gulp watch
+```
 
 See the client [Development Guide][developers] for instructions on building,
 testing and contributing to the client.

@@ -18,6 +18,10 @@ function changelogText() {
   return fs.readFileSync('./CHANGELOG.md', 'utf-8');
 }
 
+function appHtmlText() {
+  return fs.readFileSync('./test-app.html', 'utf-8');
+}
+
 /**
  * @typedef Config
  * @property {string} clientUrl - The URL of the client's boot script
@@ -69,6 +73,8 @@ function LiveReloadServer(port, config) {
           </body>
           </html>
         `;
+      } else if (url.pathname === '/app.html') {
+        content = appHtmlText();
       } else {
         content = `
           <html>
