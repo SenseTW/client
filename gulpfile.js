@@ -103,6 +103,7 @@ var appBundles = [{
   name: 'boot',
   entry: './src/boot/index',
   transforms: ['babel'],
+  minify: false
 },{
   // The sidebar application for displaying and editing annotations.
   name: 'app',
