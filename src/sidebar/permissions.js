@@ -117,6 +117,7 @@ function Permissions(localStorage) {
    * @return {boolean}
    */
   this.permits = function (perms, action, userid) {
+    if (!perms[action]) return false;
     return perms[action].indexOf(userid) !== -1;
   };
 }
